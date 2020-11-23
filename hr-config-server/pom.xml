@@ -6,13 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.4.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.lucasnpires</groupId>
-	<artifactId>hr-eureka-server</artifactId>
+	<artifactId>hr-config-server</artifactId>
 	<version>1.0.0</version>
-	<name>hr-eureka-server</name>
-	<description>Eureka Server</description>
+	<name>hr-config-server</name>
+	<description>Config Server</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -21,12 +21,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.glassfish.jaxb</groupId>
-			<artifactId>jaxb-runtime</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 
 		<dependency>

@@ -3,6 +3,7 @@ package br.com.lucasnpires.hrworker.resources;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,10 @@ public class WorkerResource {
 	@Autowired
 	private WorkerRepository repository;
 	
+	@Value("${test.config}")
+	private String testConfig;
+	
+	
 	@GetMapping
 	private ResponseEntity<List<Worker>> findAll(){
 		return ResponseEntity.ok(repository.findAll());
@@ -46,6 +51,12 @@ public class WorkerResource {
 		log.info("PORT = " + env.getProperty("local.server.port"));
 		
 		return ResponseEntity.ok(repository.findById(id).orElse(new Worker()));
+	}
+	
+	@GetMapping(value = "/configs")
+	private ResponseEntity<Void> getConfigs(){
+		log.info("CONFIG = "+testConfig);
+		return ResponseEntity.noContent().build();
 	}
 	
 }
